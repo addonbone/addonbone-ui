@@ -34,7 +34,7 @@ $root: header;
     font-weight: var(--header-title-font-weight, 700);
     line-height: var(--header-title-line-height, 120%);
     will-change: color;
-    transition: color var(--transition-speed);
+    transition: color var(--header-title-transition-speed, var(--transition-speed-md));
 
     .#{$root}--center & {
       justify-content: center;
