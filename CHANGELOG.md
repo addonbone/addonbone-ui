@@ -1,5 +1,55 @@
 # Changelog
 
+## 🚀 Release `addon-ui` v0.11.1 (2026-08-10)
+
+
+### 🏗️ Build System
+
+* **release:** preserve pre-1.0 versioning ([2235855](https://github.com/addon-stack/addon-ui/commit/2235855e12222a63031d42907c1ebb1fb5079649))
+
+
+
+
+### 🐛 Bug Fixed
+
+* **ci:** restore coverage test execution ([5bfb0a4](https://github.com/addon-stack/addon-ui/commit/5bfb0a425bb2441a121e33d03d2d81df92e22639))
+
+
+* **styles:** remove application-specific sidebar view ([17a3ecd](https://github.com/addon-stack/addon-ui/commit/17a3ecdaa81320b93a9c9c50d7e5206304732a4c))
+
+
+
+
+### 📝 Documentation
+
+* improve package onboarding ([fe6e715](https://github.com/addon-stack/addon-ui/commit/fe6e715d7f33402e59d8702621230f3b63b18bed))
+
+
+* sync Button and Select documentation ([dcd27b1](https://github.com/addon-stack/addon-ui/commit/dcd27b1beac6a4e5c5329089c947f8be23ab0348))
+
+
+
+
+### 🤖 CI
+
+* **workflow:** remove OIDC diagnostics from release workflow ([a00f45e](https://github.com/addon-stack/addon-ui/commit/a00f45e51cafa437172a31b961ff9aab8bce824a))
+
+
+
+
+### 🛠️ Refactoring
+
+* update styles and props across Button, Popover, and Select components ([c6f1f8e](https://github.com/addon-stack/addon-ui/commit/c6f1f8e8241423f79ae7a3bf79e15bcce154211d))
+
+
+
+
+
+### 🙌 Contributors
+
+- [Anjey Tsibylskij](https://github.com/atldays) (@atldays) — commits: 8
+- [Rostyslav Nihrutsa](https://github.com/RostyslavNihrutsa) (@RostyslavNihrutsa) — commits: 1
+
 ## 🚀 Release `addon-ui` v0.11.0 (2026-03-13)
 
 
