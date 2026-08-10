@@ -1,14 +1,17 @@
 # addon-ui
 
-[![npm version](https://img.shields.io/npm/v/addon-ui.svg)](https://www.npmjs.com/package/addon-ui)
-[![npm downloads](https://img.shields.io/npm/dm/addon-ui.svg)](https://www.npmjs.com/package/addon-ui)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+A React UI toolkit for Addon Bone browser-extension applications.
 
-Addon UI - A comprehensive UI component library designed for the Addon Bone framework.
-This library provides a set of customizable React components with theming capabilities to build modern,
-responsive user interfaces.
+[![npm version](https://img.shields.io/npm/v/addon-ui.svg?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/addon-ui)
+[![npm downloads](https://img.shields.io/npm/dm/addon-ui.svg?style=for-the-badge&color=blue)](https://www.npmjs.com/package/addon-ui)
+[![CI](https://img.shields.io/github/actions/workflow/status/addon-stack/addon-ui/ci.yml?branch=develop&style=for-the-badge)](https://github.com/addon-stack/addon-ui/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE.md)
 
-## Features
+Build consistent browser-extension interfaces with React components, typed UI
+configuration, theme customization, and an Addon Bone plugin for shared and
+app-specific UI files.
+
+## Why addon-ui
 
 - 🎨 **Customizable Theming**: Easily customize the look and feel of components through theme configuration
 - 🧩 **Rich Component Set**: Includes buttons, forms, layouts, modals, and more
@@ -18,9 +21,11 @@ responsive user interfaces.
 
 ## Table of Contents
 
+- [Why addon-ui](#why-addon-ui)
 - [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Package Entry Points](#package-entry-points)
 - [Components](#components)
-- [Basic Usage](#basic-usage)
 - [Integration](#integration)
 - [Customization](#customization)
 - [Using Extra Props](#using-extra-props)
@@ -32,23 +37,52 @@ responsive user interfaces.
 
 ## Installation
 
-### npm:
+`addon-ui` is designed to be used with [Addon Bone](https://addonbone.com). Your host application must provide
+compatible `adnbn`, `react`, and `react-dom` peer dependencies.
 
 ```bash
-npm install addon-ui
+npm i addon-ui
 ```
 
-### pnpm:
+With pnpm or Yarn:
 
 ```bash
 pnpm add addon-ui
-```
-
-### yarn:
-
-```bash
 yarn add addon-ui
 ```
+
+## Quick Start
+
+```jsx
+import React from "react";
+import {Button, ButtonColor, ButtonVariant, TextField, UIProvider} from "addon-ui";
+
+function App() {
+    return (
+        <UIProvider>
+            <div>
+                <TextField label="Username" placeholder="Enter your username" />
+                <Button color={ButtonColor.Primary} variant={ButtonVariant.Contained}>
+                    Submit
+                </Button>
+            </div>
+        </UIProvider>
+    );
+}
+
+export default App;
+```
+
+## Package Entry Points
+
+| Import            | Use it for                                                    |
+| :---------------- | :------------------------------------------------------------ |
+| `addon-ui`        | React components, UI providers, and theme types.              |
+| `addon-ui/config` | The typed `defineConfig()` helper for UI configuration files. |
+| `addon-ui/plugin` | Addon Bone plugin setup and UI-file discovery.                |
+| `addon-ui/theme`  | Sass mixins for extending theme styles.                       |
+
+See [Plugin Setup](#plugin-setup) to connect the package to an Addon Bone application.
 
 ## Components
 
@@ -94,28 +128,6 @@ Notes:
   .module.scss file.
 - Where a component wraps a Radix UI primitive, the doc links to the official Radix docs and lists common props.
 
-## Basic Usage
-
-```jsx
-import React from "react";
-import {Button, ButtonColor, ButtonVariant, TextField, UIProvider} from "addon-ui";
-
-function App() {
-    return (
-        <UIProvider>
-            <div>
-                <TextField label="Username" placeholder="Enter your username" />
-                <Button color={ButtonColor.Primary} variant={ButtonVariant.Contained}>
-                    Submit
-                </Button>
-            </div>
-        </UIProvider>
-    );
-}
-
-export default App;
-```
-
 ## Integration
 
 **Addon UI** is designed exclusively for the [Addon Bone](https://addonbone.com) framework and does not have a standalone build as it's connected
@@ -152,11 +164,11 @@ export default defineConfig({
 | Option        | Type                                               | Default       | Description                                                                                            |
 | :------------ | :------------------------------------------------- | :------------ | :----------------------------------------------------------------------------------------------------- |
 | `themeDir`    | `string`                                           | `"."`         | Directory path where plugin configuration and style files are located.                                 |
-| `configName`  | `string`                                           | `"config.ui"` | Name of the configuration file.                                                                        |
-| `styleName`   | `string`                                           | `"style.ui"`  | Name of the SCSS style file.                                                                           |
+| `configName`  | `string`                                           | `"ui.config"` | Name of the configuration file.                                                                        |
+| `styleName`   | `string`                                           | `"ui.style"`  | Name of the SCSS style file.                                                                           |
 | `mergeConfig` | `boolean`                                          | `true`        | Whether to merge configuration files from different directories.                                       |
 | `mergeStyles` | `boolean`                                          | `true`        | Whether to merge style files from different directories.                                               |
-| `splitChunks` | `boolean \| (name: string) => string \| undefined` | `true`        | Enables automatic chunk splitting. If a function is provided, it can be used to customize chunk names. |
+| `splitChunks` | `boolean \| (name: string) => string \| undefined` | `false`       | Enables automatic chunk splitting. If a function is provided, it can be used to customize chunk names. |
 
 #### Customizing Chunk Names
 
@@ -508,6 +520,7 @@ for full type safety.
 
 ## Contributing
 
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for the branch, commit, and release policy.
 - Keep canonical end-user documentation in the `docs/` directory. When adding or changing CSS variables in a component’s
   `*.module.scss`, update the corresponding doc table.
 - Where a component wraps a Radix primitive, keep the “Radix UI props” section in sync if the underlying package
