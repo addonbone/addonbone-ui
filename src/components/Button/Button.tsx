@@ -41,7 +41,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (props,
                 },
                 className
             )}
-            childrenClassName={classnames(styles["button__text"], childrenClassName)}
+            childrenClassName={classnames(styles["button__children"], childrenClassName)}
         >
             {children}
         </BaseButton>

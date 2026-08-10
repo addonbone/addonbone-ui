@@ -1,5 +1,10 @@
 @use "../../../styles/mixins" as theme;
 
+@include theme.view("sidebar") {
+  --viewport-max-width: 100%;
+  --viewport-max-height: 100vh;
+}
+
 :root {
   --viewport-height: var(--viewport-min-height);
   --viewport-width: var(--viewport-min-width);
