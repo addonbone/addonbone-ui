@@ -140,6 +140,7 @@
   },
   "overrides": {
     "flat-cache": "^6.1.18",
-    "glob": "^13.0.0"
+    "glob": "^13.0.0",
+    "test-exclude": "^8.0.0"
   }
 }

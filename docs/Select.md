@@ -58,7 +58,6 @@ Supports contextual props via the UI provider: `useComponentProps("select")`.
 | Prop                | Type                     | Default |
 | ------------------- | ------------------------ | ------- |
 | `center`            | `boolean`                | `false` |
-| `fullWidth`         | `boolean`                | —       |
 | `ellipsis`          | `boolean`                | `true`  |
 | `icon`              | `ReactNode`              | —       |
 | `placeholder`       | `ReactNode`              | —       |
@@ -126,6 +125,9 @@ Only variables actually referenced in `src/components/Select/select.module.scss`
 | `--select-trigger-padding`             | `var(--select-trigger-padding, 8px 12px)`                                                           |
 | `--select-trigger-height`              | none (define in theme)                                                                              |
 | `--select-trigger-gap`                 | `var(--select-trigger-gap, 5px)`                                                                    |
+| `--select-speed-border-color`          | `var(--select-speed-border-color, var(--speed-color))`                                              |
+| `--select-speed-box-shadow`            | `var(--select-speed-box-shadow, var(--speed-color))`                                                |
+| `--select-speed-bg`                    | `var(--select-speed-bg, var(--speed-color))`                                                        |
 | `--select-placeholder-color`           | `var(--select-placeholder-color, var(--placeholder-color))`                                         |
 | `--select-trigger-shadow-offset-hover` | none (define in theme)                                                                              |
 | `--select-trigger-border-width-hover`  | `var(--select-trigger-border-width-hover, var(--select-trigger-border-width, 1px))`                 |

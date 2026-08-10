@@ -22,13 +22,13 @@ export interface PluginOptions {
 
     /**
      * Name of the configuration file.
-     * @default "config.ui"
+     * @default "ui.config"
      */
     configName?: string;
 
     /**
      * Name of the style file.
-     * @default "style.ui"
+     * @default "ui.style"
      */
     styleName?: string;
 
@@ -47,7 +47,7 @@ export interface PluginOptions {
     /**
      * Configuration for splitting chunks.
      * Can be a boolean to enable/disable or a callback to customize chunk names.
-     * @default true
+     * @default false
      */
     splitChunks?: boolean | ((name: string) => string | undefined);
 }

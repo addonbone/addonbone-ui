@@ -11,6 +11,7 @@ $root: button;
   padding: var(--button-padding, 0 16px);
   transition:
     color var(--button-speed-color, var(--speed-color)),
+    border-color var(--button-speed-border-color, var(--speed-color)),
     background var(--button-speed-bg, var(--speed-color)),
     transform var(--button-speed-transform, var(--speed-sm));
 
@@ -25,31 +26,31 @@ $root: button;
 
   // Variants
   &--contained {
-    color: var(--button-contained-text-color, var(--bg-primary-color));
-    background: var(--button-contained-bg-color, var(--text-primary-color));
+    color: var(--button-contained-text-color, var(--text-primary-color));
+    background: var(--button-contained-bg-color, var(--bg-secondary-color));
 
     &.#{$root}--primary-color {
-      color: #fff;
+      color: var(--button-contained-primary-text-color, #fff);
       background: var(--primary-color);
     }
 
     &.#{$root}--secondary-color {
-      color: #fff;
+      color: var(--button-contained-secondary-text-color, #fff);
       background: var(--secondary-color);
     }
 
     &.#{$root}--accent-color {
-      color: #fff;
+      color: var(--button-contained-accent-text-color, #fff);
       background: var(--accent-color);
     }
 
     &.#{$root}--error-color {
-      color: #fff;
+      color: var(--button-contained-error-text-color, #fff);
       background: var(--error-color);
     }
 
     &.#{$root}--success-color {
-      color: #fff;
+      color: var(--button-contained-success-text-color, #fff);
       background: var(--success-color);
     }
   }
@@ -160,14 +161,14 @@ $root: button;
     border-radius: var(--button-height, 999px);
   }
 
-  &__text {
+  &__children {
     position: relative;
-    z-index: 3;
+    z-index: var(--button-children-z-index, 3);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: var(--button-max-width, 160px);
-    line-height: initial;
+    line-height: var(--button-children-line-height, inherit);
     transition: color var(--button-speed-color, var(--speed-color));
   }
 }

@@ -33,19 +33,19 @@ export function Example() {
 
 Only the prop name, type, and default are listed below.
 
-| Prop                | Type                                       | Default       |
-| ------------------- | ------------------------------------------ | ------------- |
-| `variant`           | `'contained' \| 'outlined' \| 'text'`      | `'contained'` |
-| `color`             | `'primary' \| 'secondary' \| 'accent'`     | —             |
-| `size`              | `'small' \| 'medium' \| 'large'`           | —             |
-| `radius`            | `'small' \| 'medium' \| 'large' \| 'full'` | —             |
-| `before`            | `ReactNode`                                | —             |
-| `after`             | `ReactNode`                                | —             |
-| `beforeClassName`   | `string`                                   | —             |
-| `afterClassName`    | `string`                                   | —             |
-| `childrenClassName` | `string`                                   | —             |
-| `disabled`          | `boolean`                                  | `false`       |
-| HTML button attrs   | all standard `button` attributes           | —             |
+| Prop                | Type                                                           | Default       |
+| ------------------- | -------------------------------------------------------------- | ------------- |
+| `variant`           | `'contained' \| 'outlined' \| 'text'`                          | `'contained'` |
+| `color`             | `'primary' \| 'secondary' \| 'accent' \| 'error' \| 'success'` | —             |
+| `size`              | `'small' \| 'medium' \| 'large'`                               | —             |
+| `radius`            | `'small' \| 'medium' \| 'large' \| 'full'`                     | —             |
+| `before`            | `ReactNode`                                                    | —             |
+| `after`             | `ReactNode`                                                    | —             |
+| `beforeClassName`   | `string`                                                       | —             |
+| `afterClassName`    | `string`                                                       | —             |
+| `childrenClassName` | `string`                                                       | —             |
+| `disabled`          | `boolean`                                                      | `false`       |
+| HTML button attrs   | all standard `button` attributes                               | —             |
 
 Note: Defaults may also be provided globally via theme/config (`UIProvider`, `ui.config.ts`). Local props take precedence over global config.
 
@@ -61,6 +61,8 @@ ButtonVariant.Text;
 ButtonColor.Primary;
 ButtonColor.Secondary;
 ButtonColor.Accent;
+ButtonColor.Error;
+ButtonColor.Success;
 
 // Sizes
 ButtonSize.Small;
@@ -84,21 +86,32 @@ Only variables actually referenced in `src/components/Button/button.module.scss`
 | `--button-font-weight`                     | `var(--button-font-weight, 500)`                                                                    |
 | `--button-font-size`                       | `var(--button-font-size, var(--font-size, 14px))`                                                   |
 | `--button-letter-spacing`                  | `var(--button-letter-spacing, 0.5px)`                                                               |
-| `--button-line-height`                     | `var(--button-line-height, var(--line-height, 1 rem))`                                              |
+| `--button-line-height`                     | `var(--button-line-height, var(--line-height, 1rem))`                                               |
 | `--button-height`                          | `var(--button-height, 34px)`                                                                        |
 | `--button-border-radius`                   | `var(--button-border-radius, 10px)`                                                                 |
 | `--button-padding`                         | `var(--button-padding, 0 16px)`                                                                     |
+| `--button-speed-color`                     | `var(--button-speed-color, var(--speed-color))`                                                     |
+| `--button-speed-border-color`              | `var(--button-speed-border-color, var(--speed-color))`                                              |
+| `--button-speed-bg`                        | `var(--button-speed-bg, var(--speed-color))`                                                        |
+| `--button-speed-transform`                 | `var(--button-speed-transform, var(--speed-sm))`                                                    |
 | `--button-scale`                           | `var(--button-scale, 0.98)`                                                                         |
 | `--button-disabled-opacity`                | `var(--button-disabled-opacity, 0.75)`                                                              |
-| `--button-contained-text-color`            | `var(--button-contained-text-color, var(--bg-primary-color))`                                       |
-| `--button-contained-bg-color`              | `var(--button-contained-bg-color, var(--text-primary-color))`                                       |
+| `--button-contained-text-color`            | `var(--button-contained-text-color, var(--text-primary-color))`                                     |
+| `--button-contained-bg-color`              | `var(--button-contained-bg-color, var(--bg-secondary-color))`                                       |
+| `--button-contained-primary-text-color`    | `var(--button-contained-primary-text-color, #fff)`                                                  |
+| `--button-contained-secondary-text-color`  | `var(--button-contained-secondary-text-color, #fff)`                                                |
+| `--button-contained-accent-text-color`     | `var(--button-contained-accent-text-color, #fff)`                                                   |
+| `--button-contained-error-text-color`      | `var(--button-contained-error-text-color, #fff)`                                                    |
+| `--button-contained-success-text-color`    | `var(--button-contained-success-text-color, #fff)`                                                  |
 | `--button-outlined-text-color`             | `var(--button-outlined-text-color, var(--text-primary-color))`                                      |
 | `--button-outlined-border-color`           | `var(--button-outlined-border-color, var(--button-outlined-text-color, var(--text-primary-color)))` |
 | `--button-outlined-bg-color-hover`         | none (define in theme)                                                                              |
 | `--button-outlined-bg-color-active`        | none (define in theme)                                                                              |
-| `--button-outlined-border-primary-color`   | none (define in theme)                                                                              |
-| `--button-outlined-border-secondary-color` | none (define in theme)                                                                              |
-| `--button-outlined-border-accent-color`    | none (define in theme)                                                                              |
+| `--button-outlined-border-primary-color`   | `var(--button-outlined-border-primary-color, var(--primary-color))`                                 |
+| `--button-outlined-border-secondary-color` | `var(--button-outlined-border-secondary-color, var(--secondary-color))`                             |
+| `--button-outlined-border-accent-color`    | `var(--button-outlined-border-accent-color, var(--accent-color-color))`                             |
+| `--button-outlined-border-error-color`     | `var(--button-outlined-border-error-color, var(--error-color))`                                     |
+| `--button-outlined-border-success-color`   | `var(--button-outlined-border-success-color, var(--success-color))`                                 |
 | `--button-text-text-color`                 | `var(--button-text-text-color, var(--text-primary-color))`                                          |
 | `--button-text-text-color-hover`           | `var(--button-text-text-color-hover, var(--text-secondary-color))`                                  |
 | `--button-text-text-color-active`          | `var(--button-text-text-color-active, var(--text-secondary-color))`                                 |
@@ -110,11 +123,13 @@ Only variables actually referenced in `src/components/Button/button.module.scss`
 | `--button-border-radius-md`                | `var(--button-border-radius-md, 12px)`                                                              |
 | `--button-border-radius-lg`                | `var(--button-border-radius-lg, 15px)`                                                              |
 | `--button-max-width`                       | `var(--button-max-width, 160px)`                                                                    |
+| `--button-children-z-index`                | `var(--button-children-z-index, 3)`                                                                 |
+| `--button-children-line-height`            | `var(--button-children-line-height, inherit)`                                                       |
 
 Notes:
 
 - In the `--full-radius` modifier, the border-radius is set to `var(--button-height, 999px)` (it reuses `--button-height` as the variable with a default of `999px`).
-- Theme variables seen within fallbacks include `--font-family`, `--font-size`, `--line-height`, `--bg-primary-color`, `--text-primary-color`, `--text-secondary-color`, and color tokens `--primary-color`, `--secondary-color`, `--accent-color`.
+- Theme variables seen within fallbacks include `--font-family`, `--font-size`, `--line-height`, `--speed-color`, `--speed-sm`, `--bg-primary-color`, `--bg-secondary-color`, `--text-primary-color`, `--text-secondary-color`, and color tokens `--primary-color`, `--secondary-color`, `--accent-color`, `--error-color`, `--success-color`.
 - Modifiers like `.button--primary-color` apply `--primary-color` (etc.) directly; those aren’t fallbacks but direct color assignments for that modifier.
 
 ### Theming and global configuration

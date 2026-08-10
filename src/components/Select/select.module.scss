@@ -24,7 +24,10 @@ $root: select;
     padding: var(--select-trigger-padding, 8px 12px);
     height: var(--select-trigger-height);
     gap: var(--select-trigger-gap, 5px);
-
+    transition:
+      border-color var(--select-speed-border-color, var(--speed-color)),
+      box-shadow var(--select-speed-box-shadow, var(--speed-color)),
+      background var(--select-speed-bg, var(--speed-color));
     &--center {
       justify-content: center;
     }

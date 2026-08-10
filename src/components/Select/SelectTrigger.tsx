@@ -17,7 +17,6 @@ import styles from "./select.module.scss";
 
 export interface SelectTriggerProps extends SelectTriggerRadixProps {
     center?: boolean;
-    fullWidth?: boolean;
     ellipsis?: boolean;
     icon?: React.ReactNode;
     placeholder?: React.ReactNode;
